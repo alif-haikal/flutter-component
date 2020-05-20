@@ -15,26 +15,42 @@ class MyApp extends StatefulWidget {
 // _ infront of class name means private
 class _MyAppState extends State<MyApp> {
   int _questionIndex = 0;
+  int _total_score = 0;
 
   static const _questions = [
     {
       'questionText': 'What\'s your favourite color?',
-      'answer': ['black', 'red', 'yellow', 'blue']
+      'answer': [
+        {'text': 'black', 'score': 8},
+        {'text': 'red', 'score': 5},
+        {'text': 'yellow', 'score': 3},
+        {'text': 'blue', 'score': 1},
+      ]
     },
     {
       'questionText': 'What\'s your favourite animal?',
-      'answer': ['horse', 'snake', 'fish', 'rabbit']
+      'answer': [
+        {'text': 'horse', 'score': 8},
+        {'text': 'snake', 'score': 5},
+        {'text': 'fish', 'score': 3},
+        {'text': 'rabbit', 'score': 1},
+      ]
     },
     {
       'questionText': 'What\'s your favourite movie?',
-      'answer': ['Bleach', 'Superman', 'Batman', 'Harry Potter']
+      'answer': [
+        {'text': 'Bleach', 'score': 8},
+        {'text': 'Superman', 'score': 5},
+        {'text': 'Batman', 'score': 3},
+        {'text': 'Harry Potter', 'score': 1},
+      ]
     },
   ];
 
   @override
   Widget build(BuildContext context) {
-    void _answerQuestion() {
-      if (_questionIndex < _questions.length) {}
+    void _answerQuestion(int score) {
+      _total_score += score;
       setState(() {
         _questionIndex = _questionIndex + 1;
         print('this Answer Chosen! $_questionIndex');
@@ -44,7 +60,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('My First App2'),
+          title: Text('Widget Quiz App'),
         ),
         body: _questionIndex < _questions.length
             ? Quiz(
