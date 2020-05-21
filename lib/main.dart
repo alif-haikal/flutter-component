@@ -49,6 +49,13 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    void _resetQuiz() {
+      setState(() {
+        _total_score = 0;
+        _questionIndex = 0;
+      });
+    }
+
     void _answerQuestion(int score) {
       _total_score += score;
       setState(() {
@@ -68,7 +75,10 @@ class _MyAppState extends State<MyApp> {
                 questionIndex: _questionIndex,
                 questions: _questions,
               )
-            : Result(),
+            : Result(
+                score: _total_score,
+                resetHandler: _resetQuiz,
+              ),
       ),
     );
   }
