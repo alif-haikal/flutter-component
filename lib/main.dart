@@ -59,9 +59,10 @@ class _MyAppState extends State<MyApp> {
     void _answerQuestion(int score) {
       _total_score += score;
       setState(() {
-        _questionIndex = _questionIndex + 1;
-        print('this Answer Chosen! $_questionIndex');
+        _questionIndex = _questionIndex + 5;
+//        print('this Answer Chosen! $_questionIndex');
       });
+//      print(_questions[_questionIndex]);
     }
 
     return MaterialApp(
